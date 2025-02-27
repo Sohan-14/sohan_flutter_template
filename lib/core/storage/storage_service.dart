@@ -17,7 +17,7 @@ class StorageService {
   Future<void> removeData(String key) async {
     await _storage.remove(key);
   }
-
+  
   bool isDataExists(String key) {
     return _storage.hasData(key);
   }
