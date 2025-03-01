@@ -82,6 +82,18 @@ class NetworkService {
     }
   }
 
+  void asdfa(String method) async{
+    // try {
+    //
+    //   final response = await _dio.put(endpoint, data: data);
+    //   return _parseResponse<T>(response);
+    // } catch (e) {
+    //   LoggerUtils.error("PUT request failed: $e");
+    //   rethrow;
+    // }
+  }
+
+
   Future<T> delete<T>(String endpoint, {Map<String, dynamic>? queryParameters}) async {
     try {
       final response = await _dio.delete(endpoint, queryParameters: queryParameters);
