@@ -49,22 +49,51 @@ class NetworkService {
     List<MultipartFile>? files,
   }) async {
     try {
-      switch(httpMethod){
-       case HttpMethod.GET:
-          return _parseResponse<T>(response: await _dio.get(endpoint, queryParameters:  queryParameters), fromJson: fromJson);
-        case HttpMethod.POST:
-          return _parseResponse<T>(response: await _dio.post(endpoint, data: _prepareData(data, files)), fromJson: fromJson);
-        case HttpMethod.PUT:
-          return _parseResponse<T>(response: await _dio.put(endpoint, data: _prepareData(data, files)), fromJson: fromJson);
-        case HttpMethod.PATCH:
-          return _parseResponse<T>(response: await _dio.patch(endpoint, data: _prepareData(data, files)), fromJson: fromJson);
-        case HttpMethod.DELETE:
-          return _parseResponse<T>(response: await _dio.delete(endpoint, queryParameters: queryParameters), fromJson: fromJson);
-      }
+      final response = await _sendRequest(httpMethod, endpoint, queryParameters, data, files);
+      return _parseResponse<T>(response: response, fromJson: fromJson);
     } catch (exception) {
       LoggerUtils.error("$httpMethod request failed: $exception");
       rethrow;
     }
+  }
+
+  Future<List<T>> handleListRequest<T>({
+    required HttpMethod httpMethod,
+    required String endpoint,
+    T Function(Map<String, dynamic>)? fromJson,
+    Map<String, dynamic>? queryParameters,
+    dynamic data,
+    List<MultipartFile>? files,
+  }) async {
+    try {
+      final response = await _sendRequest(httpMethod, endpoint, queryParameters, data, files);
+      return _parseListResponse<T>(response: response, fromJson: fromJson);
+    } catch (exception) {
+      LoggerUtils.error("$httpMethod request failed: $exception");
+      rethrow;
+    }
+  }
+
+
+  Future<Response> _sendRequest(
+      HttpMethod httpMethod,
+      String endpoint,
+      Map<String, dynamic>? queryParameters,
+      dynamic data,
+      List<MultipartFile>? files,
+      ) async {
+      switch(httpMethod){
+        case HttpMethod.GET:
+          return await _dio.get(endpoint, queryParameters:  queryParameters);
+        case HttpMethod.POST:
+          return await _dio.post(endpoint, data: _prepareData(data, files));
+        case HttpMethod.PUT:
+          return await _dio.put(endpoint, data: _prepareData(data, files));
+        case HttpMethod.PATCH:
+          return await _dio.patch(endpoint, data: _prepareData(data, files));
+        case HttpMethod.DELETE:
+          return await _dio.delete(endpoint, queryParameters: queryParameters);
+      }
   }
 
   dynamic _prepareData(dynamic data, List<MultipartFile>? files) {
@@ -79,20 +108,34 @@ class NetworkService {
   }
 
   T _parseResponse<T>({required Response response, T Function(Map<String, dynamic>)? fromJson}) {
-    if (response.statusCode != 200) {
+    if (response.statusCode != null && (response.statusCode! >= 200 && response.statusCode! <= 300)) {
       throw Exception("Error: ${response.statusCode}");
     }
+    if (fromJson != null) {
+      if (response.data is Map<String, dynamic>) {
+        return fromJson(response.data);
+      }
+    }
+    if (response.data is T) return response.data;
+    throw Exception("Unexpected response type: ${response.data.runtimeType}, expected $T");
+  }
+
+  List<T> _parseListResponse<T>({
+    required Response response,
+    T Function(Map<String, dynamic>)? fromJson,
+  }) {
+    if (response.statusCode != null && (response.statusCode! >= 200 && response.statusCode! <= 300)) {
+      throw Exception("Error: ${response.statusCode}");
+    }
+
     final responseData = response.data;
 
     if (fromJson != null) {
-      if (responseData is Map<String, dynamic>) {
-        return fromJson(responseData);
-      }
       if (responseData is List) {
-        return responseData.map((e) => fromJson(e as Map<String, dynamic>)).toList() as T;
+        return responseData.map((json) => fromJson(json as Map<String, dynamic>)).toList();
       }
     }
-    if (responseData is T) return responseData;
-    throw Exception("Unexpected response type: ${responseData.runtimeType}, expected $T");
+    throw Exception("Unexpected response type: ${responseData.runtimeType}, expected List<Map<String, dynamic>>");
   }
+
 }
