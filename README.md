@@ -1,5 +1,13 @@
 # sohan_flutter_template
 
-https://chatgpt.com/share/67c04f63-5b68-8011-bd7f-28e06932c8cb
+## Contributing
+Pull requests are welcome! Please fork the repository and submit a PR if you'd like to contribute.
 
-## need to further work with **di** folder
+### Author
+##### Md Zahidul Islam Shohan
+
+**mdzahidulislamshohan@gmail.com**
+
+**[LinkedIn](https://www.linkedin.com/in/md-zahidul-islam-shohan/)**
+
+**[Portfolio](https://zis-softworks.vercel.app/)**
