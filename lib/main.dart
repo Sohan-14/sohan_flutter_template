@@ -6,8 +6,15 @@ import 'package:sohan_flutter_template/core/routes/app_routes.dart';
 import 'package:sohan_flutter_template/core/routes/app_screens.dart';
 import 'package:sohan_flutter_template/core/themes/theme.dart';
 
-void main() {
-  initStorage();
+import 'core/config/app_constants.dart';
+import 'core/themes/theme_manager.dart';
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
+  final storage = GetStorage();
+  debugPrint("Stored Theme Mode at Startup: ${storage.read(AppConstants.themeMode)}");
+  Get.put<ThemeManager>(ThemeManager());
   runApp(const MyApp());
 }
 
@@ -21,15 +28,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Template',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode: Get.find<ThemeManager>().currentThemeMode,
       initialRoute: AppScreens.initialRoute,
       getPages: AppRoutes.routes,
       initialBinding: AppBindings(),
     );
   }
-}
-
-
-void initStorage() async {
-  await GetStorage.init();
 }

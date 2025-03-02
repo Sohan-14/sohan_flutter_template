@@ -108,7 +108,7 @@ class NetworkService {
   }
 
   T _parseResponse<T>({required Response response, T Function(Map<String, dynamic>)? fromJson}) {
-    if (response.statusCode != null && (response.statusCode! >= 200 && response.statusCode! <= 300)) {
+    if (response.statusCode != null && (response.statusCode! <= 200 && response.statusCode! >= 300)) {
       throw Exception("Error: ${response.statusCode}");
     }
     if (fromJson != null) {
@@ -124,7 +124,7 @@ class NetworkService {
     required Response response,
     T Function(Map<String, dynamic>)? fromJson,
   }) {
-    if (response.statusCode != null && (response.statusCode! >= 200 && response.statusCode! <= 300)) {
+    if (response.statusCode != null && (response.statusCode! <= 200 && response.statusCode! >= 300)) {
       throw Exception("Error: ${response.statusCode}");
     }
 
