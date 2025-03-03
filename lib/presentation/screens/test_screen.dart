@@ -12,6 +12,7 @@ class TestScreen extends StatelessWidget {
     final themeManager = Get.find<ThemeManager>();
 
     return Scaffold(
+      appBar: AppBar(title: Text('App Theme Example')),
       body: Center(child:
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -25,7 +26,7 @@ class TestScreen extends StatelessWidget {
               onPressed: () {
                 themeManager.toggleTheme(ThemeMode.light);
               },
-              child: Text("Light Theme"),
+              child: Text("Light Theme", style: Theme.of(context).textTheme.displayLarge,),
             ),
 
             const SizedBox(height: 10,),
@@ -34,7 +35,7 @@ class TestScreen extends StatelessWidget {
               onPressed: () {
                 themeManager.toggleTheme(ThemeMode.dark);
               },
-              child: Text("Dark Theme"),
+              child: Text("Dark Theme", style: Get.theme.textTheme.displayLarge?.copyWith(color: Colors.blue)),
             ),
 
             const SizedBox(height: 10,),
