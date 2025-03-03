@@ -5,15 +5,11 @@ import 'package:sohan_flutter_template/core/di/app_bindings.dart';
 import 'package:sohan_flutter_template/core/routes/app_routes.dart';
 import 'package:sohan_flutter_template/core/routes/app_screens.dart';
 import 'package:sohan_flutter_template/core/themes/theme.dart';
-
-import 'core/config/app_constants.dart';
 import 'core/themes/theme_manager.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
-  final storage = GetStorage();
-  debugPrint("Stored Theme Mode at Startup: ${storage.read(AppConstants.themeMode)}");
   Get.put<ThemeManager>(ThemeManager());
   runApp(const MyApp());
 }

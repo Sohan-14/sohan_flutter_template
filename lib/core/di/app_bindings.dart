@@ -6,6 +6,7 @@ import 'package:sohan_flutter_template/data/repositories/sample_repository_impl.
 import 'package:sohan_flutter_template/domain/repositories/sample_repository.dart';
 import 'package:sohan_flutter_template/domain/use_cases/get_sample_data_use_cases.dart';
 import 'package:sohan_flutter_template/presentation/controllers/sample_controller.dart';
+import 'package:sohan_flutter_template/presentation/controllers/splash_controller.dart';
 
 class AppBindings extends Bindings{
 
@@ -16,5 +17,6 @@ class AppBindings extends Bindings{
     Get.lazyPut<SampleRepository>(() => SampleRepositoryImpl(Get.find<RemoteDataSource>()));
     Get.lazyPut<GetSampleDataUseCase>(() => GetSampleDataUseCase(Get.find<SampleRepository>()));
     Get.lazyPut<SampleController>(() => SampleController(Get.find<GetSampleDataUseCase>()));
+    Get.lazyPut<SplashController>(() => SplashController());
   }
 }

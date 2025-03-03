@@ -22,7 +22,7 @@ class NetworkService {
 
     _dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) {
-        String? token = StorageService.instance.getData("authToken");
+        String? token = StorageService().getData("authToken");
         if (token != null && token.isNotEmpty) {
           options.headers['Authorization'] = 'Bearer $token';
         }

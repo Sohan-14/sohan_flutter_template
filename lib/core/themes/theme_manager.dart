@@ -4,7 +4,7 @@ import 'package:sohan_flutter_template/core/config/app_constants.dart';
 import 'package:sohan_flutter_template/core/storage/storage_service.dart';
 
 class ThemeManager extends GetxController {
-  final StorageService _storage = StorageService.instance;
+  final StorageService _storage = StorageService();
   final Rx<ThemeMode> _themeMode = ThemeMode.system.obs;
   ThemeMode get currentThemeMode => _themeMode.value;
 

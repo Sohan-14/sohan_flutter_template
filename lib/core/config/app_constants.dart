@@ -6,5 +6,6 @@ class AppConstants{
   static const String darkMode = "darkMode";
   static const String systemMode = "systemMode";
   static const String apiBaseUrl = 'https://jsonplaceholder.typicode.com';
+  static const String token = 'token';
 
 }
