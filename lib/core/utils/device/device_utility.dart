@@ -34,15 +34,6 @@ class DeviceUtility {
     );
   }
 
-  // Get Screen Height & Width
-  static double getScreenHeight(BuildContext context) {
-    return MediaQuery.of(context).size.height;
-  }
-
-  static double getScreenWidth(BuildContext context) {
-    return MediaQuery.of(context).size.width;
-  }
-
   // Get Pixel Ratio
   static double getPixelRatio(BuildContext context) {
     return MediaQuery.of(context).devicePixelRatio;
@@ -107,19 +98,6 @@ class DeviceUtility {
   static void showStatusBar() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
   }
-
-  // Check Internet Connection (with Timeout Handling)
-  static Future<bool> hasInternetConnection() async {
-    try {
-      final result = await InternetAddress.lookup("example.com").timeout(const Duration(seconds: 4));
-      return result.isNotEmpty && result.first.rawAddress.isNotEmpty;
-    } on SocketException catch (_) {
-      return false;
-    } on TimeoutException catch (_) {
-      return false;
-    }
-  }
-
 
   // Launch URL Safely
   // use url_launcher packages
