@@ -1,26 +1,56 @@
 import 'package:flutter/material.dart';
-import 'package:sohan_flutter_template/core/config/app_colors.dart';
+import 'package:sohan_flutter_template/core/config/app_dark_colors.dart';
+import 'package:sohan_flutter_template/core/themes/app_appbar_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_bottom_nav_bar_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_bottom_sheet_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_card_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_chip_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_dialogue_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_elevated_btn_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_expansion_tile_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_input_decoration_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_nav_drawer_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_outline_btn_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_page_transition_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_progress_indicator_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_radio_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_scroll_bar_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_snack_bar_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_switch_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_tab_bar_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_text_btn_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_text_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_tooltip_theme.dart';
 
 class DarkTheme{
   DarkTheme._();
   static final ThemeData darkTheme = ThemeData(
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(seedColor: AppDarkColors.primaryColor),
     brightness: Brightness.dark,
-    primaryColor: AppColors.primaryDark,
-    scaffoldBackgroundColor: AppColors.primaryBackgroundDark,
-    appBarTheme: AppBarTheme(
-      // backgroundColor: AppColors.darkAppBarBackgroundColor,
-      // foregroundColor: AppColors.darkAppBarTextColor,
-      elevation: 2,
-      centerTitle: true,
-      titleTextStyle: TextStyle(
-          // color: AppColors.darkAppBarTextColor, fontSize: 20, fontWeight: FontWeight.bold
-      ),
-    ),
-    // textTheme: TextTheme(
-    //   displayLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: AppColors.darkTextColor),
-    //   displayMedium: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: AppColors.darkTextColor),
-    //   bodyLarge: TextStyle(fontSize: 16, color: AppColors.darkBodyTextColor),
-    //   bodyMedium: TextStyle(fontSize: 14, color: AppColors.darkBodyTextColor),
-    // ),
+    primaryColor: AppDarkColors.primaryColor,
+    scaffoldBackgroundColor: AppDarkColors.backgroundColor,
+    appBarTheme: AppAppbarTheme.appBarThemeDark,
+    dividerColor: AppDarkColors.dividerColor,
+    textTheme: AppTextTheme.darkTextTheme,
+    elevatedButtonTheme: AppElevatedBtnTheme.elevatedButtonThemeDark,
+    outlinedButtonTheme: AppOutlineBtnTheme.outlinedButtonThemeDark,
+    textButtonTheme: AppTextBtnTheme.textButtonThemeDark,
+    inputDecorationTheme: AppInputDecorationTheme.inputDecorationThemeDark,
+    cardTheme: AppCardTheme.cardThemeDark,
+    chipTheme: AppChipTheme.chipThemeDark,
+    dialogTheme: AppDialogueTheme.dialogueThemeDark,
+    snackBarTheme: AppSnackBarTheme.snackBarThemeDark,
+    switchTheme: AppSwitchTheme.switchThemeDark,
+    progressIndicatorTheme: AppProgressIndicatorTheme.progressIndicatorThemeDark,
+    tabBarTheme: AppTabBarTheme.tabBarThemeDark,
+    bottomNavigationBarTheme: AppBottomNavBarTheme.bottomNavBarThemeDark,
+    radioTheme: AppRadioTheme.radioThemeDark,
+    tooltipTheme: AppTooltipTheme.tooltipThemeDark,
+    pageTransitionsTheme: AppPageTransitionTheme.pageTransitionsTheme,
+    scrollbarTheme: AppScrollBarTheme.scrollbarThemeDark,
+    bottomSheetTheme: AppBottomSheetTheme.bottomSheetThemeDark,
+    expansionTileTheme: AppExpansionTileTheme.expansionTileThemeDark,
+    navigationDrawerTheme: AppNavDrawerTheme.navigationDrawerThemeDark,
   );
 }
