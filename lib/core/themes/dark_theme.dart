@@ -4,6 +4,7 @@ import 'package:sohan_flutter_template/core/themes/app_appbar_theme.dart';
 import 'package:sohan_flutter_template/core/themes/app_bottom_nav_bar_theme.dart';
 import 'package:sohan_flutter_template/core/themes/app_bottom_sheet_theme.dart';
 import 'package:sohan_flutter_template/core/themes/app_card_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_check_box_theme.dart';
 import 'package:sohan_flutter_template/core/themes/app_chip_theme.dart';
 import 'package:sohan_flutter_template/core/themes/app_dialogue_theme.dart';
 import 'package:sohan_flutter_template/core/themes/app_elevated_btn_theme.dart';
@@ -30,9 +31,9 @@ class DarkTheme{
     brightness: Brightness.dark,
     primaryColor: AppDarkColors.primaryColor,
     scaffoldBackgroundColor: AppDarkColors.backgroundColor,
+    textTheme: AppTextTheme.darkTextTheme,
     appBarTheme: AppAppbarTheme.appBarThemeDark,
     dividerColor: AppDarkColors.dividerColor,
-    textTheme: AppTextTheme.darkTextTheme,
     elevatedButtonTheme: AppElevatedBtnTheme.elevatedButtonThemeDark,
     outlinedButtonTheme: AppOutlineBtnTheme.outlinedButtonThemeDark,
     textButtonTheme: AppTextBtnTheme.textButtonThemeDark,
@@ -52,5 +53,6 @@ class DarkTheme{
     bottomSheetTheme: AppBottomSheetTheme.bottomSheetThemeDark,
     expansionTileTheme: AppExpansionTileTheme.expansionTileThemeDark,
     navigationDrawerTheme: AppNavDrawerTheme.navigationDrawerThemeDark,
+    checkboxTheme: AppCheckBoxTheme.darkCheckBoxTheme
   );
 }

@@ -4,6 +4,7 @@ import 'package:sohan_flutter_template/core/themes/app_appbar_theme.dart';
 import 'package:sohan_flutter_template/core/themes/app_bottom_nav_bar_theme.dart';
 import 'package:sohan_flutter_template/core/themes/app_bottom_sheet_theme.dart';
 import 'package:sohan_flutter_template/core/themes/app_card_theme.dart';
+import 'package:sohan_flutter_template/core/themes/app_check_box_theme.dart';
 import 'package:sohan_flutter_template/core/themes/app_chip_theme.dart';
 import 'package:sohan_flutter_template/core/themes/app_dialogue_theme.dart';
 import 'package:sohan_flutter_template/core/themes/app_elevated_btn_theme.dart';
@@ -52,5 +53,6 @@ class LightTheme{
     bottomSheetTheme: AppBottomSheetTheme.bottomSheetThemeLight,
     expansionTileTheme: AppExpansionTileTheme.expansionTileThemeLight,
     navigationDrawerTheme: AppNavDrawerTheme.navigationDrawerThemeLight,
+    checkboxTheme: AppCheckBoxTheme.lightCheckBoxTheme,
   );
 }

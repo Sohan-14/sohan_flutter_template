@@ -4,15 +4,19 @@ import 'package:sohan_flutter_template/core/config/app_light_colors.dart';
 
 class AppChipTheme{
   AppChipTheme._();
-  static const ChipThemeData chipThemeLight = ChipThemeData(
-    backgroundColor: AppLightColors.secondaryColor,
-    iconTheme: IconThemeData(color: AppLightColors.textWhiteColor),
-    labelStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppLightColors.textWhiteColor),
+  static ChipThemeData chipThemeLight = ChipThemeData(
+      disabledColor: AppLightColors.greyColor.withValues(alpha: 0.4),
+      labelStyle: const TextStyle(color:  AppLightColors.blackColor),
+      selectedColor: Colors.blue,
+      padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
+      checkmarkColor:  AppLightColors.whiteColor
   );
 
-  static const ChipThemeData chipThemeDark = ChipThemeData(
-    backgroundColor: AppDarkColors.secondaryColor,
-    iconTheme: IconThemeData(color: AppDarkColors.textWhiteColor),
-    labelStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: AppDarkColors.textWhiteColor),
+  static ChipThemeData chipThemeDark = ChipThemeData(
+      disabledColor: AppDarkColors.greyColor,
+      labelStyle: const TextStyle(color: AppDarkColors.whiteColor),
+      selectedColor: AppDarkColors.primaryColor,
+      padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
+      checkmarkColor: AppDarkColors.whiteColor
   );
 }

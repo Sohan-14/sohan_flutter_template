@@ -24,6 +24,8 @@ class AppDarkColors{
   static const Color textPrimaryColor = Color(0xFFB0B0B0);
   static const Color textSecondaryColor = Color(0xFF8E8E8E);
   static const Color textWhiteColor = Colors.white;
+  static const Color textBlackColor = Colors.black;
+
 
   // Background colors
   static const Color backgroundColor = Color(0xFF272727);
@@ -55,6 +57,7 @@ class AppDarkColors{
   static const Color darkerGreyColor = Color(0xFF333333);
   static const Color darkGreyColor = Color(0xFF666666);
   static const Color greyColor = Color(0xFF444444);
+  static const Color whiteColor = Colors.white;
 
   // Divider Colors
   static const Color dividerColor = Color(0xFFBDBDBD);

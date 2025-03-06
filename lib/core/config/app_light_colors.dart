@@ -22,6 +22,7 @@ class AppLightColors{
   static const Color textPrimaryColor = Color(0xFF333333);
   static const Color textSecondaryColor = Color(0xFF6C757D);
   static const Color textWhiteColor = Colors.white;
+  static const Color textBlackColor = Colors.black;
 
   // Background colors
   static const Color backgroundColor = Color(0xFFF6F6F6);
@@ -52,6 +53,7 @@ class AppLightColors{
   static const Color darkerGreyColor = Color(0xFF4f4f4f);
   static const Color darkGreyColor = Color(0xFF939393);
   static const Color greyColor = Color(0xFFe0e0e0);
+  static const Color whiteColor = Colors.white;
 
   // Divider
   static const Color dividerColor = Color(0xFFBDBDBD);
